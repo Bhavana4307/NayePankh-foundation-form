@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NayePankh AI Career Mentor</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0f172a;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+padding:20px;
+}
+
+.container{
+width:100%;
+max-width:700px;
+background:#1e293b;
+border-radius:15px;
+padding:25px;
+box-shadow:0 0 20px rgba(0,255,255,0.2);
+}
+
+h1{
+text-align:center;
+color:#38bdf8;
+margin-bottom:20px;
+}
+
+.chat-box{
+background:#0f172a;
+height:350px;
+overflow-y:auto;
+padding:15px;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.message{
+padding:12px;
+border-radius:10px;
+margin-bottom:10px;
+max-width:80%;
+}
+
+.user{
+background:#2563eb;
+color:white;
+margin-left:auto;
+}
+
+.ai{
+background:#334155;
+color:white;
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin-bottom:12px;
+border:none;
+border-radius:8px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#06b6d4;
+color:white;
+font-size:16px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+button:hover{
+background:#0891b2;
+}
+
+.typing{
+font-style:italic;
+opacity:0.8;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🤖 NayePankh AI Career Mentor</h1>
+
+<div class="chat-box" id="chatBox">
+
+<div class="message ai">
+Hello! I am your AI Career Mentor.
+Choose your career interest and I'll guide you.
+</div>
+
+</div>
+
+<input type="text" id="name" placeholder="Enter Your Name">
+
+<select id="interest">
+
+<option>Full Stack Development</option>
+<option>Front End Development</option>
+<option>Web Development</option>
+<option>Artificial Intelligence (AI)</option>
+<option>Data Analytics</option>
+<option>Java Development</option>
+<option>Python Development</option>
+<option>Machine Learning</option>
+<option>Backend Development</option>
+<option>UI/UX Design</option>
+<option>AI Agent Development</option>
+<option>No Code Development</option>
+<option>Vibe Coder</option>
+<option>Mobile App Development</option>
+<option>WordPress Development</option>
+<option>AI Web Development</option>
+
+</select>
+
+<button onclick="askAI()">Ask AI Mentor</button>
+
+</div>
+
+<script>
+
+function askAI(){
+
+let name=document.getElementById("name").value;
+let interest=document.getElementById("interest").value;
+let chatBox=document.getElementById("chatBox");
+
+if(name.trim()===""){
+alert("Please enter your name");
+return;
+}
+
+let userMessage=document.createElement("div");
+userMessage.className="message user";
+userMessage.innerText=
+"My interest is " + interest;
+chatBox.appendChild(userMessage);
+
+let typing=document.createElement("div");
+typing.className="message ai typing";
+typing.innerText="AI is thinking...";
+chatBox.appendChild(typing);
+
+chatBox.scrollTop=chatBox.scrollHeight;
+
+const recommendations={
+
+"Full Stack Development":
+"Learn HTML, CSS, JavaScript, React, Node.js, Express.js and MongoDB. Build full-stack projects and deploy them online.",
+
+"Front End Development":
+"Focus on HTML, CSS, JavaScript, React and responsive design. Create modern user interfaces.",
+
+"Web Development":
+"Learn frontend, backend, databases and deployment to build complete websites.",
+
+"Artificial Intelligence (AI)":
+"Start with Python, Machine Learning, Neural Networks and Generative AI concepts.",
+
+"Data Analytics":
+"Learn Excel, SQL, Power BI, Tableau and Python for analyzing data and generating insights.",
+
+"Java Development":
+"Master Core Java, OOP, Collections, JDBC and Spring Boot.",
+
+"Python Development":
+"Learn Python fundamentals, automation, APIs and backend development.",
+
+"Machine Learning":
+"Study Statistics, Scikit-Learn, TensorFlow and model building techniques.",
+
+"Backend Development":
+"Learn Node.js, Express.js, Databases, APIs and Authentication.",
+
+"UI/UX Design":
+"Master Figma, wireframes, prototypes and user-centered design.",
+
+"AI Agent Development":
+"Explore LLMs, LangChain, Retrieval-Augmented Generation and AI workflows.",
+
+"No Code Development":
+"Use Bubble, Glide, Zapier and Make to create apps without coding.",
+
+"Vibe Coder":
+"Use AI tools like ChatGPT, Cursor and Lovable to rapidly build software products.",
+
+"Mobile App Development":
+"Learn Flutter or React Native and build Android and iOS applications.",
+
+"WordPress Development":
+"Master WordPress themes, plugins, Elementor and website optimization.",
+
+"AI Web Development":
+"Combine web development with AI APIs such as Gemini and OpenAI to create intelligent applications."
+
+};
+
+setTimeout(()=>{
+
+typing.remove();
+
+let aiMessage=document.createElement("div");
+aiMessage.className="message ai";
+
+aiMessage.innerHTML=
+"<b>Hello " + name + "!</b><br><br>" +
+recommendations[interest] +
+"<br><br>💙🚀 Keep learning and building projects. Best wishes from NayePankh Foundation!";
+
+chatBox.appendChild(aiMessage);
+
+chatBox.scrollTop=chatBox.scrollHeight;
+
+},2000);
+
+}
+
+</script>
+
+</body>
+</html>
